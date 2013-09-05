@@ -1,0 +1,26 @@
+<table class="table table-condensed table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Host</th>
+      <th>Facility</th>
+      <th>Priority</th>
+      <th>Tag</th>
+      <th>Time</th>
+      <th>Message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @logs.each do |log| %>
+      <tr>
+        <td><%= log.ID %></td>
+        <td><%= log.FromHost %></td>
+        <td><%= log.Facility %></td>
+        <td><%= log.Priority %></td>
+        <td><%= log.SysLogTag.gsub /:$/, '' %></td>
+        <td><%= l log.DeviceReportedTime %></td>
+        <td><%= log.Message %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
