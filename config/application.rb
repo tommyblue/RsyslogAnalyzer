@@ -23,6 +23,6 @@ module RsyslogAnalyzer
     # Disable assets generation
     config.generators.stylesheets = false
     config.generators.javascripts = false
-    config.generators.helpers = false
+    config.generators.helper = false
   end
 end
