@@ -19,6 +19,7 @@ silence_stream(STDOUT, &load_schema)
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
+   config.include Devise::TestHelpers, type: :controller
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:

@@ -13,6 +13,38 @@
 
 ActiveRecord::Schema.define(version: 20130905122132) do
 
+  create_table "SystemEvents", primary_key: "ID", force: true do |t|
+    t.integer  "CustomerID",         limit: 8
+    t.datetime "ReceivedAt"
+    t.datetime "DeviceReportedTime"
+    t.integer  "Facility",           limit: 2
+    t.integer  "Priority",           limit: 2
+    t.string   "FromHost",           limit: 60
+    t.text     "Message"
+    t.integer  "NTSeverity"
+    t.integer  "Importance"
+    t.string   "EventSource",        limit: 60
+    t.string   "EventUser",          limit: 60
+    t.integer  "EventCategory"
+    t.integer  "EventID"
+    t.text     "EventBinaryData"
+    t.integer  "MaxAvailable"
+    t.integer  "CurrUsage"
+    t.integer  "MinUsage"
+    t.integer  "MaxUsage"
+    t.integer  "InfoUnitID"
+    t.string   "SysLogTag",          limit: 60
+    t.string   "EventLogType",       limit: 60
+    t.string   "GenericFileName",    limit: 60
+    t.integer  "SystemID"
+  end
+
+  create_table "SystemEventsProperties", primary_key: "ID", force: true do |t|
+    t.integer "SystemEventID"
+    t.string  "ParamName"
+    t.text    "ParamValue"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -28,7 +60,7 @@ ActiveRecord::Schema.define(version: 20130905122132) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

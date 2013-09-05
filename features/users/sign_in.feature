@@ -4,9 +4,9 @@ Feature: Sign in
   I want to be able to sign in
 
   Scenario: User sign in successfully
-    Given I am a valid user
-    And I am not signed in
+    Given I am not signed in
+    And I am a valid user
     When I sign in with my credentials
-    Then I am signed in
-    And I am redirected to the dashboard
-    And I see a welcome message
+    Then I see a welcome message
+    #When I visit the home page
+    #Then I am signed in
