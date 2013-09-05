@@ -8,5 +8,5 @@ Feature: Sign in
     And I am a valid user
     When I sign in with my credentials
     Then I see a welcome message
-    #When I visit the home page
-    #Then I am signed in
+    When I visit the home page
+    Then I am signed in

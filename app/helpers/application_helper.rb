@@ -4,7 +4,7 @@ module ApplicationHelper
     flash.keys.each do |k|
       res +=
         content_tag :div, class: "alert #{ flash_class(k) } fade in", data: { alert: 'alert' } do
-          link_to('×', '#', class: 'close', data: { dismiss: 'alert' }) + content_tag(:p, flash[k])
+          link_to('&times;'.html_safe, '#', class: 'close', data: { dismiss: 'alert' }) + content_tag(:p, flash[k])
         end
     end
     res
