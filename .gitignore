@@ -17,3 +17,6 @@
 
 # Ignore VIM temp files
 *.swp
+
+# Ignore database configuration
+/config/database.yml
