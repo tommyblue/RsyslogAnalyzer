@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-# Use mysql as the database for Active Record
 gem 'mysql2'
 
 # Use SCSS for stylesheets
@@ -33,7 +32,11 @@ group :doc do
 end
 
 group :development, :test do
+  gem 'sqlite3'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
   gem 'rspec-rails', '~> 2.0'
+  gem 'factory_girl_rails'
 end
 
 # Use ActiveModel has_secure_password
