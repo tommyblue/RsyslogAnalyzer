@@ -36,6 +36,16 @@ rescue NameError
   raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
 end
 
+load_schema = lambda {
+  # use db agnostic schema by default
+  load "#{Rails.root.to_s}/db/schema.rb"
+
+  # if you use seeds uncomment next line
+  # load "#{Rails.root.to_s}/db/seeds.rb"
+  # ActiveRecord::Migrator.up('db/migrate') # use migrations
+}
+silence_stream(STDOUT, &load_schema)
+
 # You may also want to configure DatabaseCleaner to use different strategies for certain features and scenarios.
 # See the DatabaseCleaner documentation for details. Example:
 #
