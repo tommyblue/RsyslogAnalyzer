@@ -1,0 +1,5 @@
+<ul class="list-group">
+  <% @hosts.each do |host| %>
+    <li class="list-group-item"><a href="#"><%= host[:host] %></a> <span class="badge"><%= host[:hits] %></span></li>
+  <% end %>
+</ul>
