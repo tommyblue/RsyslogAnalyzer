@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :load_hosts
 
-  def load_hosts
-    @hosts = Log.select('DISTINCT(FromHost), COUNT(*) AS hits').group(:FromHost).order(:FromHost).map{ |l| { host: l.FromHost, hits: l.hits } }
-  end
+  private
+
+    def load_hosts
+      @hosts = Log.select('DISTINCT(FromHost), COUNT(*) AS hits').group(:FromHost).order(:FromHost).map{ |l| { host: l.FromHost, hits: l.hits } }
+    end
 end
