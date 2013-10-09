@@ -12,4 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require handlebars
+//= require ember
+//= require ember-data
+//= require_self
+//= require rsyslog_analyzer
+
+// for more details see: http://emberjs.com/guides/application/
+RsyslogAnalyzer = Ember.Application.create();
