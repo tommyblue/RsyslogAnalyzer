@@ -4,7 +4,8 @@ RsyslogAnalyzer::Application.routes.draw do
   #-- API
   namespace :api do
     namespace :v1 do
-      resources :logs
+      resources :hosts, only: [:index]
+      resources :logs, only: [:index]
     end
   end
 
