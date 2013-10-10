@@ -1,0 +1,5 @@
+<ul>
+  {{#each host in controller}}
+  <li>{{#link-to 'hosts.show' host }}{{host.hostname}}{{/link-to}} ({{host.hits}})</li>
+  {{/each}}
+</ul>
